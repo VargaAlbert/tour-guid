@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SearchBox.scss";
 import { AiOutlineEuroCircle } from "react-icons/ai";
 import { HiOutlineMapPin } from "react-icons/hi2";
 
-export default function SearchBox({
-  searchChangeMin,
-  searchChangeMax,
-  searchChangeCity,
-}) {
+export default function SearchBox({ handleMin, handelMax, searchChangeCity }) {
+  const [searchMin, setSearchMin] = useState(null);
+  const [searchMax, setSearchMax] = useState(Infinity);
+
+  handleMin(searchMin);
+
+  handelMax(searchMax);
+
+  const searchChangeMin = (e) => {
+    setSearchMin(e.target.value);
+  };
+
+  const searchChangeMax = (e) => {
+    setSearchMax(e.target.value);
+    if (e.target.value === "") {
+      setSearchMax(Infinity);
+    }
+  };
+
   return (
     <div className="searchbox-container">
       <div className="search-number">
