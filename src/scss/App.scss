@@ -1,0 +1,14 @@
+@use "./variable.scss";
+
+.tour-guid-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: variable.$color-background-main;
+}
+
+.tour-guid-list-container {
+  width: 100%;
+  background-color: variable.$color-background-main;
+  @include variable.flexBox(row, wrap, center, center, normal);
+}

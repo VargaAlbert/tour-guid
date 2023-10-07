@@ -1,0 +1,67 @@
+@use "../../scss/variable";
+
+%input {
+    margin: 0.25rem;
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    color: variable.$color-basic-white;
+    font-size: variable.$size-r10 + 0.2rem;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    text-align: center;
+}
+
+.searchbox-container {
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+    padding: 1rem;
+    background-color: variable.$color-background-search;
+    @include variable.flexBox(column, nowrap, center, space-evenly, center);
+    //box-shadow: rgb(114, 114, 114) 0px 0px 5px 2.5px inset;
+    border-radius: 20px;
+
+    label {
+        font-size: variable.$size-r10;
+        font-weight: variable.$weights-8;
+        color: variable.$color-basic-white;
+    }
+
+    input[type="number"] {
+        @extend %input;
+        width: 4rem;
+        overflow: hidden;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    input[type="search"] {
+        @extend %input;
+        width: 18rem;
+    }
+
+    .search-icon {
+        font-size: variable.$size-r15;
+    }
+}
+
+@include variable.Small {
+}
+@include variable.Medium {
+    label {
+        font-size: variable.$size-r10 + 0.25rem;
+    }
+    .searchbox-container {
+        @include variable.flexBox(row, nowrap, normal, space-evenly, normal);
+    }
+}
+@include variable.Large {
+}
+@include variable.Extra-large {
+}
+@include variable.XXL-large {
+}
+@include variable.XXXL-large {
+}

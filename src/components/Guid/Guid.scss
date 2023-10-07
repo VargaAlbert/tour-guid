@@ -1,0 +1,101 @@
+@use "../../scss/variable";
+@use "../StartQuery/StartQuery.scss";
+
+%tour-guide-card {
+    width: 250px;
+    height: 400px;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    @include variable.flexBox(column, nowrap, normal, space-between, center);
+    transition: 0.2s;
+
+    &:hover {
+        transform: scale(1.05);
+        transition: 0.2s;
+    }
+
+    img {
+        border-radius: 1.5rem;
+        width: 150px;
+        height: 150px;
+    }
+}
+
+.tour-guide-card-free {
+    @extend %tour-guide-card;
+    background-image: radial-gradient(
+        100% 100% at 100% 0,
+        variable.$color-background-free1 0,
+        variable.$color-background-free2 100%
+    );
+}
+
+.tour-guide-card-premium {
+    @extend %tour-guide-card;
+    background-image: radial-gradient(
+        100% 100% at 100% 0,
+        variable.$color-background-premium1 0,
+        variable.$color-background-premium2 100%
+    );
+}
+
+.guid-container {
+    text-align: center;
+
+    h2 {
+        font-size: variable.$size-r15;
+    }
+
+    .nat {
+        margin: 0.3rem 0;
+        font-size: variable.$size-r10;
+    }
+
+    .city {
+        margin: 0.3rem 0;
+        font-size: variable.$size-r10 + 0.3rem;
+    }
+}
+
+.star-rating {
+    @include variable.flexBox(row, nowrap, normal, normal, normal);
+    font-weight: variable.$weights-7;
+    .star {
+        color: variable.$color-main-premium;
+        font-size: variable.$size-r10 + 0.3rem;
+    }
+}
+
+.price-container {
+    width: 100%;
+    @include variable.flexBox(row, nowrap, normal, space-between, center);
+
+    button {
+        @extend %button;
+        width: 6rem;
+        font-size: variable.$size-r10;
+        color: variable.$color-basic-white;
+        background-color: variable.$color-background-btn;
+        &:focus {
+            box-shadow:
+                variable.$color-basic-black 0 0 0 1.5px inset,
+                rgba(0, 0, 0, 0.4) 0 2px 4px,
+                rgba(0, 0, 0, 0.3) 0 7px 13px -3px,
+                variable.$color-background-btn 0 -3px 0 inset;
+        }
+
+        &:hover {
+            box-shadow:
+                rgba(0, 0, 0, 0.4) 0 4px 8px,
+                rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+                variable.$color-background-btn 0 -3px 0 inset;
+            transform: translateY(-2px);
+        }
+
+        &:active {
+            box-shadow: variable.$color-background-btn 0 3px 7px inset;
+            transform: translateY(2px);
+        }
+    }
+}

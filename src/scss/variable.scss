@@ -1,0 +1,132 @@
+/* ---FONT-SETTING--- */
+$font-main-size: 16px;
+$font-stack: "Roboto", Tahoma, Geneva, Verdana, sans-serif;
+
+* {
+    font-size: $font-main-size;
+    font-family: $font-stack;
+}
+
+$size-r05: 0.5rem;
+$size-r10: 1rem;
+$size-r15: 1.5rem;
+$size-r20: 2rem;
+$size-r25: 2.5rem;
+$size-r30: 3rem;
+$size-r35: 3.5rem;
+$size-r40: 4rem;
+$size-r45: 4.5rem;
+$size-r50: 5rem;
+
+$weights-1: 100;
+$weights-2: 200;
+$weights-3: 300;
+$weights-4: 400;
+$weights-5: 500;
+$weights-6: 600;
+$weights-7: 700;
+$weights-8: 800;
+$weights-9: 900;
+
+/* ---COLOR-SETTING--- */
+
+$color-basic-white: white;
+$color-basic-black: black;
+$color-basic-gray: gray;
+
+$color-main-free: #3c4fe0;
+$color-main-premium: #9e6112;
+$color-main-gray: #dadada;
+//$color-main-footer: #020202;
+
+$color-secondary-start: #099e09;
+$color-secondary-star: #000000;
+
+$color-font-primary: #b1aeae;
+$color-font-secondary: #ffffff;
+
+//$color-border-primary: #333;
+//$color-border-secondary: #444;
+
+$color-background-free1: #5adaff;
+$color-background-free2: #5468ff;
+$color-background-premium1: #fcff5a;
+$color-background-premium2: #ffc354;
+$color-background-main: #111111;
+$color-background-search: #15172b;
+$color-background-btn: #0a1161;
+
+// base:  @include variable.flexBox(row, nowrap, normal, normal, normal);
+@mixin flexBox($direction, $wrap, $align, $justify, $align-items) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-content: $align;
+    justify-content: $justify;
+    align-items: $align-items;
+}
+
+/* ---MEDIA-SETTING--- */
+$Small: 540px;
+@mixin Small {
+    @media (min-width: $Small) {
+        @content;
+    }
+}
+$Medium: 768px;
+@mixin Medium {
+    @media (min-width: $Medium) {
+        @content;
+    }
+}
+$Large: 992px;
+@mixin Large {
+    @media (min-width: $Large) {
+        @content;
+    }
+}
+$Extra-large: 1200px;
+@mixin Extra-large {
+    @media (min-width: $Extra-large) {
+        @content;
+    }
+}
+$XXL-large: 1440px;
+@mixin XXL-large {
+    @media (min-width: $XXL-large) {
+        @content;
+    }
+}
+$XXXL-large: 1650px;
+@mixin XXXL-large {
+    @media (min-width: $XXXL-large) {
+        @content;
+    }
+}
+
+$nav-menu: 900px;
+@mixin nav {
+    @media (min-width: $nav-menu) {
+        @content;
+    }
+}
+
+/* @include variable.Small {
+}
+@include variable.Medium {
+}
+@include variable.Large {
+}
+@include variable.Extra-large {
+}
+@include variable.XXL-large {
+}
+@include variable.XXXL-large {
+} */
+
+//@include variable.container-my
+@mixin container-my {
+    max-width: 1650px;
+    width: 95%;
+    margin: auto;
+}

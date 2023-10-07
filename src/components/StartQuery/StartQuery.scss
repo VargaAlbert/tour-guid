@@ -1,0 +1,272 @@
+@use "../../scss/variable";
+
+#home {
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url("../../../public/img/nav-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.app-header {
+    @include variable.container-my;
+    height: 100vh;
+    color: variable.$color-font-secondary;
+    @include variable.flexBox(column, nowrap, normal, center, normal);
+
+    & > div {
+        margin: 1rem;
+        width: 90%;
+        @include variable.flexBox(column, nowrap, normal, center, normal);
+    }
+}
+
+.about-text {
+    h6 {
+        margin: 0;
+        text-decoration: underline;
+        letter-spacing: 0.125rem;
+        font-size: variable.$size-r05 + 0.125rem;
+        color: variable.$color-font-primary;
+    }
+
+    h1 {
+        margin: 0.2rem 0;
+        font-size: variable.$size-r25;
+    }
+
+    h3 {
+        margin: 0.5rem 0;
+        font-size: variable.$size-r10;
+        font-weight: variable.$weights-4;
+    }
+}
+
+.start-btn-container {
+    text-align: center;
+
+    .start-icon {
+        margin: 0 0.5rem;
+        font-size: variable.$size-r15;
+    }
+
+    h2 {
+        color: variable.$color-secondary-start;
+        font-size: variable.$size-r15;
+        letter-spacing: 0.2rem;
+        animation: bounce 3s ease infinite;
+    }
+
+    @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-30px);
+        }
+        60% {
+            transform: translateY(-15px);
+        }
+    }
+
+    .select {
+        margin: 0.5rem;
+        color: variable.$color-basic-black;
+    }
+}
+
+.btn-container {
+    @include variable.flexBox(column, nowrap, normal, normal, center);
+}
+
+%button {
+    width: 100%;
+    margin: 0.5rem;
+    align-items: center;
+    appearance: none;
+    border: 0;
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: variable.$color-basic-white;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono", monospace;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition:
+        box-shadow 0.15s,
+        transform 0.15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: variable.$size-r15;
+    font-weight: variable.$weights-7;
+}
+
+.button-free {
+    @extend %button;
+    background-image: radial-gradient(
+        100% 100% at 100% 0,
+        variable.$color-background-free1 0,
+        variable.$color-background-free2 100%
+    );
+    box-shadow:
+        rgba(45, 35, 66, 0.4) 0 2px 4px,
+        rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+        rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+
+    &:focus {
+        box-shadow:
+            variable.$color-main-free 0 0 0 1.5px inset,
+            rgba(45, 35, 66, 0.4) 0 2px 4px,
+            rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+            variable.$color-main-free 0 -3px 0 inset;
+    }
+
+    &:hover {
+        box-shadow:
+            rgba(45, 35, 66, 0.4) 0 4px 8px,
+            rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+            variable.$color-main-free 0 -3px 0 inset;
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        box-shadow: variable.$color-main-free 0 3px 7px inset;
+        transform: translateY(2px);
+    }
+}
+.button-premium {
+    @extend %button;
+    color: variable.$color-basic-black;
+    background-image: radial-gradient(
+        100% 100% at 100% 0,
+        variable.$color-background-premium1 0,
+        variable.$color-background-premium2 100%
+    );
+    box-shadow:
+        rgba(66, 56, 35, 0.4) 0 2px 4px,
+        rgba(66, 66, 35, 0.3) 0 7px 13px -3px,
+        rgba(111, 97, 58, 0.5) 0 -3px 0 inset;
+
+    &:focus {
+        box-shadow:
+            variable.$color-main-premium 0 0 0 1.5px inset,
+            rgba(66, 59, 35, 0.4) 0 2px 4px,
+            rgba(66, 59, 35, 0.3) 0 7px 13px -3px,
+            variable.$color-main-premium 0 -3px 0 inset;
+    }
+
+    &:hover {
+        box-shadow:
+            rgba(45, 35, 66, 0.4) 0 4px 8px,
+            rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+            variable.$color-main-premium 0 -3px 0 inset;
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        box-shadow: variable.$color-main-premium 0 3px 7px inset;
+        transform: translateY(2px);
+    }
+
+    & > span {
+        @include variable.flexBox(column, nowrap, normal, normal, center);
+    }
+}
+
+.premium-text {
+    font-size: variable.$size-r05 + 0.2rem;
+}
+
+@include variable.Small {
+    .about-text {
+        h6 {
+            font-size: variable.$size-r10;
+        }
+        h1 {
+            font-size: variable.$size-r30;
+        }
+        h3 {
+            font-size: variable.$size-r15;
+        }
+    }
+    .start-btn-container {
+        .start-icon {
+            font-size: variable.$size-r15;
+        }
+
+        h2 {
+            font-size: variable.$size-r15;
+        }
+    }
+}
+@include variable.Medium {
+    .app-header {
+        @include variable.flexBox(row, nowrap, normal, center, normal);
+        & > div:first-child {
+            padding: 1rem 2rem 1rem 0rem;
+        }
+        & > div:last-child {
+            padding: 1rem 0rem 1rem 2rem;
+        }
+    }
+}
+@include variable.Large {
+    .btn-container {
+        @include variable.flexBox(row, nowrap, normal, space-around, center);
+    }
+    .about-text {
+        h1 {
+            font-size: variable.$size-r35;
+        }
+        h3 {
+            font-size: variable.$size-r20;
+        }
+    }
+    .start-btn-container {
+        .start-icon {
+            margin: 0 0.5rem;
+            font-size: variable.$size-r20;
+        }
+
+        h2 {
+            font-size: variable.$size-r20;
+        }
+    }
+}
+@include variable.Extra-large {
+    .app-header {
+        & > div:first-child {
+            padding: 1rem 8rem 1rem 0rem;
+        }
+        & > div:last-child {
+            padding: 1rem 0rem 1rem 8rem;
+        }
+    }
+}
+@include variable.XXL-large {
+    .about-text {
+        h1 {
+            margin: 0 0 2rem 0;
+            font-size: variable.$size-r40;
+        }
+    }
+}
+@include variable.XXXL-large {
+}
