@@ -10,8 +10,8 @@ function App() {
   const [premium, setPremium] = useState([""]);
   const [buttonValue, setButtonValue] = useState(null);
   const [guids, setGuids] = useState([]);
-  //const [searchMin, setSearchMin] = useState(null);
-  //const [searchMax, setSearchMax] = useState(Infinity);
+  const [searchMin, setSearchMin] = useState(0);
+  const [searchMax, setSearchMax] = useState(Infinity);
   const [searchCity, setSearchCity] = useState("");
 
   const onSearchNat = (selectOpcion) => {
@@ -55,19 +55,23 @@ function App() {
     return (filteredTurGuid)
   });
 
-  const onSearchChangeMin = (min) => {
-    console.log(typeof (min));
+  const onSearchChangeMin = (e) => {
+    setSearchMin(e.target.value);
   };
+  console.log(searchMin)
 
-  const onSearchChangeMax = (max) => {
-    console.log(typeof (max));
+  const onSearchChangeMax = (e) => {
+    setSearchMax(e.target.value);
+    if (e.target.value === "") {
+      setSearchMax(Infinity);
+    }
   };
 
   const isFilteredTourGuid = (guids, filteredModels) => {
     let filteredTourGuid = guids;
     filteredTourGuid = filteredModels
     filteredTourGuid = filteredTourGuid.filter((guids) =>
-      (guids.registered.age > 0 && guids.registered.age < 999999));
+      (guids.registered.age > searchMin && guids.registered.age < searchMax));
     return filteredTourGuid;
   }
 
@@ -77,7 +81,7 @@ function App() {
     <>
       <StartQuery onSearchNat={onSearchNat} onClickFree={handleButtonClickFree} onClickPremium={handleButtonClickPremium} />
       <section className='tour-guid-container' >
-        <SearchBox handleMin={onSearchChangeMin} handelMax={onSearchChangeMax} searchChangeCity={onSearchChangeCity} />
+        <SearchBox searchChangeMin={onSearchChangeMin} searchChangeMax={onSearchChangeMax} searchChangeCity={onSearchChangeCity} />
         <div className='tour-guid-list-container'>
           <TourGuidList onPremium={premium} guid={result} />
         </div>
