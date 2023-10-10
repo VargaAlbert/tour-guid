@@ -44,12 +44,12 @@
 
     .select {
         color: variable.$color-basic-black;
-        width: 16rem;
+        width: 15rem;
     }
 
     input[type="search"] {
         @extend %input;
-        width: 16rem;
+        width: 15rem;
     }
 
     .search-icon {
