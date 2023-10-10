@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Select from "react-select";
 import "./StartQuery.scss";
 import { FaMapLocationDot } from "react-icons/fa6";
@@ -9,6 +9,31 @@ export default function StartQuery({
   onClickFree,
   onClickPremium,
 }) {
+  const [startClicks, setStartClicks] = useState(null);
+  const [startNat, setStartNat] = useState("");
+  const [animation, setAnimation] = useState("");
+  const [visibilityStyle, setVisibilityStyle] = useState({
+    visibility: "hidden",
+  });
+
+  const clickCounter = () => {
+    setStartClicks(startClicks + 1);
+
+    console.log(startNat);
+    if (startNat === "") {
+      startClicks % 2 === 0 ? setAnimation("shake") : setAnimation("");
+      if (startClicks > 3) {
+        setVisibilityStyle({ visibility: "visible" });
+      }
+    } else {
+      setVisibilityStyle({ visibility: "hidden" });
+    }
+  };
+
+  const changeNat = (selectOpcion) => {
+    setStartNat(selectOpcion);
+  };
+
   const options = [
     { value: "AU", label: "Australia" },
     { value: "BR", label: "Brazil" },
@@ -18,7 +43,7 @@ export default function StartQuery({
     { value: "DK", label: "Denmark" },
     { value: "ES", label: "Spain" },
     { value: "FI", label: "Finland" },
-    { value: "FR", label: "Russia" },
+    { value: "FR", label: "France" },
     { value: "GB", label: "United Kingdom" },
     { value: "IE", label: "Ireland" },
   ];
@@ -30,22 +55,49 @@ export default function StartQuery({
           <h6>bemutatkozás:</h6>
           <h1>Bérelj idegenvezetöt bárhol</h1>
           <h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-            est quae facere deserunt asperiores non impedit molestias provident
-            in sed deleniti, ducimus fugiat cupiditate consequuntur maiores
-            autem exercitationem numquam? Maiores.
+            Bérelj idegenvezetőt és fedezd fel úticélod látványoságait.
+            <span className="text-free"> Ingyenes </span>
+            lelkendezésünkkel
+            <span className="text-free"> 50db idegenvezető </span> közül
+            választhatsz, <span className="text-prem"> prémium </span>{" "}
+            változatban
+            <span className="text-prem"> 100db idegenvezető </span> közül. Kezd
+            el még ma és fedezd fel a filágot!
           </h3>
         </div>
         <div className="start-btn-container">
           <h2>
             START! <FaMapLocationDot className="start-icon" />
           </h2>
-          <Select className="select" options={options} onChange={onSearchNat} />
+          <Select
+            className={`select ${animation}`}
+            options={options}
+            onChange={(selectedOption) => {
+              onSearchNat(selectedOption);
+              changeNat(selectedOption);
+            }}
+            placeholder="Válasz egy országot..."
+          />
+          <div style={visibilityStyle}>
+            <h4>Elöbb válasszon egy országot!</h4>
+          </div>
           <div className="btn-container">
-            <button className="button-free" onClick={onClickFree}>
+            <button
+              className="button-free"
+              onClick={() => {
+                onClickFree();
+                clickCounter();
+              }}
+            >
               START free <FcSearch />
             </button>
-            <button className="button-premium" onClick={onClickPremium}>
+            <button
+              className="button-premium"
+              onClick={() => {
+                onClickPremium();
+                clickCounter();
+              }}
+            >
               <span>
                 START premium <span className="premium-text">1290Ft/query</span>
               </span>

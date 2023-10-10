@@ -9,6 +9,7 @@
 
 .tour-guid-list-container {
   width: 100%;
+  min-height: 100vh;
   background-color: variable.$color-background-main;
   @include variable.flexBox(row, wrap, center, center, normal);
 }

@@ -1,0 +1,42 @@
+@use "../../scss/variable";
+
+.erorr-container {
+    @include variable.flexBox(column, nowrap, normal, normal, center);
+    max-width: 600px;
+    height: 500px;
+    background-color: rgb(61, 24, 122);
+    color: antiquewhite;
+    border-radius: 5rem;
+
+    & > div {
+        margin: 1rem;
+    }
+
+    div:first-child {
+        margin: auto 1rem;
+    }
+    h2 {
+        font-size: variable.$size-r40;
+        margin: 0;
+    }
+    span {
+        font-size: 10rem;
+    }
+}
+
+@include variable.Small {
+}
+@include variable.Medium {
+}
+@include variable.Large {
+    .erorr-container {
+        height: 300px;
+        @include variable.flexBox(row, nowrap, normal, normal, center);
+    }
+}
+@include variable.Extra-large {
+}
+@include variable.XXL-large {
+}
+@include variable.XXXL-large {
+}

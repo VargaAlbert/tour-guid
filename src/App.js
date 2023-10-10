@@ -10,29 +10,56 @@ function App() {
   const [premium, setPremium] = useState([""]);
   const [buttonValue, setButtonValue] = useState(null);
   const [guids, setGuids] = useState([]);
-  const [searchMin, setSearchMin] = useState(0);
+  const [searchMin, setSearchMin] = useState(null);
   const [searchMax, setSearchMax] = useState(Infinity);
   const [searchCity, setSearchCity] = useState("");
+  const [searchSorting, setSearchSorting] = useState(null);
+  const [visibilityStyle, setVisibilityStyle] = useState({ display: 'none' });
 
   const onSearchNat = (selectOpcion) => {
     setNat(selectOpcion.value)
   }
 
+  const onSearchSorting = (selectOpcion) => {
+    setSearchSorting(selectOpcion.value)
+  }
+
+
   const handleButtonClickFree = () => {
     setButtonValue(50);
-    setNatBool(true);
     setPremium("free");
+    toggleVisibility()
+    setNatBool(true);
+    setTimeout(scroll, 500);
   }
 
   const handleButtonClickPremium = () => {
     setButtonValue(100);
-    setNatBool(true);
     setPremium("premium");
+    setNatBool(true);
+    toggleVisibility()
+    setTimeout(scroll, 500);
+  }
+
+  const scroll = () => {
+    const windowHeight = window.innerHeight;
+    const scrollAmount = windowHeight;
+    window.scrollBy({
+      top: scrollAmount,
+      behavior: 'smooth',
+    });
+  }
+
+  function toggleVisibility() {
+    if (nat[0] !== "") {
+      setVisibilityStyle({ display: 'block' });
+    }
+
   }
 
   useEffect(
     () => {
-      if (buttonValue !== 0 && natBool === true) {
+      if (buttonValue !== null && natBool === true && nat[0] !== "") {
         fetch(`https://randomuser.me/api/?results=${buttonValue}&nat=${nat}`)
           .then((response) => response.json())
           .then((guid) =>
@@ -46,7 +73,6 @@ function App() {
   const onSearchChangeCity = (e) => {
     setSearchCity(e.target.value);
   };
-  console.log(searchCity);
 
   const isFilteredTurGuid = guids.filter((guid) => {
     let filteredTurGuid = `${guid.location.city}`
@@ -55,10 +81,10 @@ function App() {
     return (filteredTurGuid)
   });
 
+
   const onSearchChangeMin = (e) => {
     setSearchMin(e.target.value);
   };
-  console.log(searchMin)
 
   const onSearchChangeMax = (e) => {
     setSearchMax(e.target.value);
@@ -67,21 +93,35 @@ function App() {
     }
   };
 
-  const isFilteredTourGuid = (guids, filteredModels) => {
+
+
+
+  const isFilteredTourGuid = (guids, searchSorting, filteredGuids) => {
     let filteredTourGuid = guids;
-    filteredTourGuid = filteredModels
+    filteredTourGuid = filteredGuids;
     filteredTourGuid = filteredTourGuid.filter((guids) =>
       (guids.registered.age > searchMin && guids.registered.age < searchMax));
+
+    const filteredTourGuidCopy = [...filteredTourGuid];
+
+    if (searchSorting === "min-max") {
+      filteredTourGuid.sort((a, b) => a.dob.age - b.dob.age)
+    } else if (searchSorting === "max-min") {
+      filteredTourGuid.sort((a, b) => b.dob.age - a.dob.age)
+    } else {
+      filteredTourGuid = filteredTourGuidCopy;
+    }
+
     return filteredTourGuid;
   }
 
-  const result = isFilteredTourGuid(guids, isFilteredTurGuid)
+  const result = isFilteredTourGuid(guids, searchSorting, isFilteredTurGuid)
 
   return (
     <>
       <StartQuery onSearchNat={onSearchNat} onClickFree={handleButtonClickFree} onClickPremium={handleButtonClickPremium} />
-      <section className='tour-guid-container' >
-        <SearchBox searchChangeMin={onSearchChangeMin} searchChangeMax={onSearchChangeMax} searchChangeCity={onSearchChangeCity} />
+      <section className='tour-guid-container' style={visibilityStyle} >
+        <SearchBox searchChangeMin={onSearchChangeMin} searchChangeMax={onSearchChangeMax} searchSorting={onSearchSorting} searchChangeCity={onSearchChangeCity} />
         <div className='tour-guid-list-container'>
           <TourGuidList onPremium={premium} guid={result} />
         </div>
