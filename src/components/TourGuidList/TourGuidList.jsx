@@ -8,7 +8,7 @@ export default function TourGuidList({ onPremium, guid }) {
       <div className="erorr-container">
         <div>
           <h2>HOPPÁ!</h2>
-          <h3>A keresési feltételeknek egyik idegenvezetöt sem felel meg...</h3>
+          <h3>A keresési feltételeknek egyik idegenvezetőt sem felel meg...</h3>
         </div>
         <div>
           <span>:/</span>

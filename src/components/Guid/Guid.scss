@@ -61,6 +61,7 @@
 .star-rating {
     @include variable.flexBox(row, nowrap, normal, normal, normal);
     font-weight: variable.$weights-7;
+
     .star {
         color: variable.$color-main-premium;
         font-size: variable.$size-r10 + 0.3rem;

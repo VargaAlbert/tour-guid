@@ -17,6 +17,7 @@ $size-r35: 3.5rem;
 $size-r40: 4rem;
 $size-r45: 4.5rem;
 $size-r50: 5rem;
+$size-r100: 10rem;
 
 $weights-1: 100;
 $weights-2: 200;
@@ -37,16 +38,13 @@ $color-basic-gray: gray;
 $color-main-free: #3c4fe0;
 $color-main-premium: #9e6112;
 $color-main-gray: #dadada;
-//$color-main-footer: #020202;
 
 $color-secondary-start: #099e09;
 $color-secondary-star: #000000;
 
 $color-font-primary: #b1aeae;
 $color-font-secondary: #ffffff;
-
-//$color-border-primary: #333;
-//$color-border-secondary: #444;
+$color-font-erorr: #faebd7;
 
 $color-background-free1: #5adaff;
 $color-background-free2: #5468ff;
@@ -55,6 +53,7 @@ $color-background-premium2: #ffc354;
 $color-background-main: #111111;
 $color-background-search: #15172b;
 $color-background-btn: #0a1161;
+$color-background-erorr: #3d187a;
 
 // base:  @include variable.flexBox(row, nowrap, normal, normal, normal);
 @mixin flexBox($direction, $wrap, $align, $justify, $align-items) {

@@ -53,16 +53,16 @@ export default function StartQuery({
       <section className="app-header">
         <div className="about-text">
           <h6>bemutatkozás:</h6>
-          <h1>Bérelj idegenvezetöt bárhol</h1>
+          <h1>Bérelj idegenvezetőt bárhol</h1>
           <h3>
-            Bérelj idegenvezetőt és fedezd fel úticélod látványoságait.
+            Bérelj idegenvezetőt és fedezd fel úti célod látványosságait.
             <span className="text-free"> Ingyenes </span>
             lelkendezésünkkel
             <span className="text-free"> 50db idegenvezető </span> közül
             választhatsz, <span className="text-prem"> prémium </span>{" "}
             változatban
             <span className="text-prem"> 100db idegenvezető </span> közül. Kezd
-            el még ma és fedezd fel a filágot!
+            el még ma és fedezd fel a világot!
           </h3>
         </div>
         <div className="start-btn-container">

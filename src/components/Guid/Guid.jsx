@@ -41,5 +41,3 @@ export default function Guid({
     </div>
   );
 }
-
-//className={`tour-guide-card-${premiumClass}`}

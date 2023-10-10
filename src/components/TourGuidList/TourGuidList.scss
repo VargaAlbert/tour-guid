@@ -4,8 +4,8 @@
     @include variable.flexBox(column, nowrap, normal, normal, center);
     max-width: 600px;
     height: 500px;
-    background-color: rgb(61, 24, 122);
-    color: antiquewhite;
+    background-color: variable.$color-background-erorr;
+    color: variable.$color-font-erorr;
     border-radius: 5rem;
 
     & > div {
@@ -20,7 +20,7 @@
         margin: 0;
     }
     span {
-        font-size: 10rem;
+        font-size: variable.$size-r100;
     }
 }
 

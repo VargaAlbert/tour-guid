@@ -154,6 +154,7 @@
         transform: translateY(2px);
     }
 }
+
 .button-premium {
     @extend %button;
     color: variable.$color-basic-black;

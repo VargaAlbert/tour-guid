@@ -37,6 +37,7 @@
         }
     }
 }
+
 @mixin bounce {
     animation: bounce 4s ease infinite;
     @keyframes bounce {

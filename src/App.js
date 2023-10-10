@@ -28,14 +28,16 @@ function App() {
   const handleButtonClickFree = () => {
     setButtonValue(50);
     setPremium("free");
-    toggleVisibility()
-    setNatBool(true);
-    setTimeout(scroll, 500);
+    buttonSetting();
   }
 
   const handleButtonClickPremium = () => {
     setButtonValue(100);
     setPremium("premium");
+    buttonSetting();
+  }
+
+  const buttonSetting = () => {
     setNatBool(true);
     toggleVisibility()
     setTimeout(scroll, 500);
@@ -74,13 +76,6 @@ function App() {
     setSearchCity(e.target.value);
   };
 
-  const isFilteredTurGuid = guids.filter((guid) => {
-    let filteredTurGuid = `${guid.location.city}`
-      .toLowerCase()
-      .includes(searchCity.toLowerCase().replace(" ", ""));
-    return (filteredTurGuid)
-  });
-
 
   const onSearchChangeMin = (e) => {
     setSearchMin(e.target.value);
@@ -93,11 +88,17 @@ function App() {
     }
   };
 
-
-
+  const isFilteredTurGuid = guids.filter((guid) => {
+    let filteredTurGuid = `${guid.location.city}`
+      .toLowerCase()
+      .includes(searchCity.toLowerCase().replace(" ", ""));
+    return (filteredTurGuid)
+  });
 
   const isFilteredTourGuid = (guids, searchSorting, filteredGuids) => {
+
     let filteredTourGuid = guids;
+
     filteredTourGuid = filteredGuids;
     filteredTourGuid = filteredTourGuid.filter((guids) =>
       (guids.registered.age > searchMin && guids.registered.age < searchMax));
