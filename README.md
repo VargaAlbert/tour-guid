@@ -7,7 +7,8 @@ React create-react-app, scss mobile responsive design, mobile first tervezés. F
 
 - 1, REACT
   - create-react-app
-  - useState, useEffect
+  - useState
+  - useEffect
   - react hook
   - components
   - React Select
@@ -25,7 +26,7 @@ React create-react-app, scss mobile responsive design, mobile first tervezés. F
   - felexbox
   - position
 - 3, HTML (java script)
-  - szemantikus html eleme
+  - szemantikus html elemek
   - input tag
   - button
 
