@@ -69,11 +69,11 @@
     label {
         font-size: variable.$size-r10 + 0.25rem;
     }
+}
+@include variable.Large {
     .searchbox-container {
         @include variable.flexBox(row, nowrap, normal, space-evenly, normal);
     }
-}
-@include variable.Large {
 }
 @include variable.Extra-large {
     .searchbox-container {
