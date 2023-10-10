@@ -1,13 +1,15 @@
 # Tour-guid
 
 Idegenvezetők keresése bérlése.
+https://vargaalbert.github.io/tour-guid/
 
 Portfolió oldal üzleti app, „idegenvezetők” API lekérése, több feltétellel, szűrése különböző feltételek szerint.
 React create-react-app, scss mobile responsive design, mobile first tervezés. Funkcionális programozásal.
 
 - 1, REACT
   - create-react-app
-  - useState, useEffect
+  - useState
+  - useEffect
   - react hook
   - components
   - React Select
@@ -25,7 +27,7 @@ React create-react-app, scss mobile responsive design, mobile first tervezés. F
   - felexbox
   - position
 - 3, HTML (java script)
-  - szemantikus html eleme
+  - szemantikus html elemek
   - input tag
   - button
 
