@@ -8,6 +8,7 @@ import { HiOutlineMapPin } from "react-icons/hi2";
 export default function SearchBox() {
   const {
     optionsSearch,
+    searchMin,
     onSearchChangeMin,
     onSearchChangeMax,
     onSearchSorting,
@@ -24,12 +25,14 @@ export default function SearchBox() {
               type="number"
               placeholder="MIN"
               onChange={onSearchChangeMin}
+              min="0"
             ></input>
             -
             <input
               type="number"
               placeholder="MAX"
               onChange={onSearchChangeMax}
+              min={searchMin}
             ></input>
             <AiOutlineEuroCircle className="search-icon" />
           </div>

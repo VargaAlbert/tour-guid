@@ -98,7 +98,8 @@ export const AppContextProvider = ({ children }) => {
     filteredTourGuid = filteredGuids;
     filteredTourGuid = filteredTourGuid.filter(
       (guids) =>
-        guids.registered.age > searchMin && guids.registered.age < searchMax
+        guids.registered.age * 10 > searchMin * 10 - 5 &&
+        guids.registered.age * 10 < searchMax * 10 + 5
     );
 
     const filteredTourGuidCopy = [...filteredTourGuid];
@@ -122,6 +123,7 @@ export const AppContextProvider = ({ children }) => {
     handleButtonClickFree,
     handleButtonClickPremium,
     visibilityStyle,
+    searchMin,
     onSearchChangeMin,
     onSearchChangeMax,
     onSearchSorting,
