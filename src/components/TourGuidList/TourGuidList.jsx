@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 import Guid from "../Guid/Guid";
 import "./TourGuidList.scss";
 
-export default function TourGuidList({ onPremium, guid }) {
-  if (guid.length === 0) {
+export default function TourGuidList() {
+  const { premium, result } = useContext(AppContext);
+  if (result.length === 0) {
     return (
       <div className="erorr-container">
         <div>
@@ -19,10 +21,10 @@ export default function TourGuidList({ onPremium, guid }) {
 
   return (
     <>
-      {guid.map((tourGuide) => {
+      {result.map((tourGuide) => {
         return (
           <Guid
-            onPremium={onPremium}
+            premium={premium}
             key={tourGuide.login.uuid}
             picture={tourGuide.picture.large}
             name={`${tourGuide.name.first} ${tourGuide.name.last}`}

@@ -1,52 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { StartQueryContext } from "./StartQueryContext";
+import { AppContext } from "../../context/AppContext";
+
 import Select from "react-select";
 import "./StartQuery.scss";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { FcSearch } from "react-icons/fc";
 
-export default function StartQuery({
-  onSearchNat,
-  onClickFree,
-  onClickPremium,
-}) {
-  const [startClicks, setStartClicks] = useState(null);
-  const [startNat, setStartNat] = useState("");
-  const [animation, setAnimation] = useState("");
-  const [visibilityStyle, setVisibilityStyle] = useState({
-    visibility: "hidden",
-  });
-
-  const clickCounter = () => {
-    setStartClicks(startClicks + 1);
-
-    console.log(startNat);
-    if (startNat === "") {
-      startClicks % 2 === 0 ? setAnimation("shake") : setAnimation("");
-      if (startClicks > 3) {
-        setVisibilityStyle({ visibility: "visible" });
-      }
-    } else {
-      setVisibilityStyle({ visibility: "hidden" });
-    }
-  };
-
-  const changeNat = (selectOpcion) => {
-    setStartNat(selectOpcion);
-  };
-
-  const options = [
-    { value: "AU", label: "Australia" },
-    { value: "BR", label: "Brazil" },
-    { value: "CA", label: "Canada" },
-    { value: "CH", label: "Svájc" },
-    { value: "DE", label: "Germany" },
-    { value: "DK", label: "Denmark" },
-    { value: "ES", label: "Spain" },
-    { value: "FI", label: "Finland" },
-    { value: "FR", label: "France" },
-    { value: "GB", label: "United Kingdom" },
-    { value: "IE", label: "Ireland" },
-  ];
+export default function StartQuery() {
+  const { onSearchNat, handleButtonClickFree, handleButtonClickPremium } =
+    useContext(AppContext);
+  const { animation, visibilityStyle, options, clickCounter, changeNat } =
+    useContext(StartQueryContext);
 
   return (
     <header id="home">
@@ -85,7 +50,7 @@ export default function StartQuery({
             <button
               className="button-free"
               onClick={() => {
-                onClickFree();
+                handleButtonClickFree();
                 clickCounter();
               }}
             >
@@ -94,12 +59,13 @@ export default function StartQuery({
             <button
               className="button-premium"
               onClick={() => {
-                onClickPremium();
+                handleButtonClickPremium();
                 clickCounter();
               }}
             >
               <span>
-                START premium <span className="premium-text">1290Ft/query</span>
+                START premium
+                <span className="premium-text">1290Ft/query</span>
               </span>
               <FcSearch />
             </button>

@@ -5,7 +5,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { AiFillStar } from "react-icons/ai";
 
 export default function Guid({
-  onPremium,
+  premium,
   picture,
   name,
   nationality,
@@ -14,7 +14,7 @@ export default function Guid({
   money,
 }) {
   return (
-    <div className={`tour-guide-card-${onPremium}`}>
+    <div className={`tour-guide-card-${premium}`}>
       <img src={`${picture}`} alt={name.replace(" ", "-")} />
       <div className="guid-container">
         <h2>{name}</h2>

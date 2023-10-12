@@ -1,20 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import Select from "react-select";
+import { AppContext } from "../../context/AppContext";
 import "./SearchBox.scss";
 import { AiOutlineEuroCircle } from "react-icons/ai";
 import { HiOutlineMapPin } from "react-icons/hi2";
 
-export default function SearchBox({
-  searchChangeMin,
-  searchChangeMax,
-  searchSorting,
-  searchChangeCity,
-}) {
-  const optionsSearch = [
-    { value: "basick", label: "Alapértelmezett" },
-    { value: "max-min", label: "Legtöbb értékelés előre" },
-    { value: "min-max", label: "Legkevesebb értékelés előre" },
-  ];
+export default function SearchBox() {
+  const {
+    optionsSearch,
+    onSearchChangeMin,
+    onSearchChangeMax,
+    onSearchSorting,
+    onSearchChangeCity,
+  } = useContext(AppContext);
+
   return (
     <div id="start" className="searchbox-container">
       <div className="search-number">
@@ -24,13 +23,13 @@ export default function SearchBox({
             <input
               type="number"
               placeholder="MIN"
-              onChange={searchChangeMin}
+              onChange={onSearchChangeMin}
             ></input>
             -
             <input
               type="number"
               placeholder="MAX"
-              onChange={searchChangeMax}
+              onChange={onSearchChangeMax}
             ></input>
             <AiOutlineEuroCircle className="search-icon" />
           </div>
@@ -42,7 +41,7 @@ export default function SearchBox({
           <Select
             className="select"
             options={optionsSearch}
-            onChange={searchSorting}
+            onChange={onSearchSorting}
             placeholder="Rendezés..."
           />
         </label>
@@ -54,7 +53,7 @@ export default function SearchBox({
             <input
               type="search"
               placeholder="Város keresés..."
-              onChange={searchChangeCity}
+              onChange={onSearchChangeCity}
             ></input>
             <HiOutlineMapPin className="search-icon" />
           </div>
