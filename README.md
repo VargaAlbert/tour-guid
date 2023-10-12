@@ -10,6 +10,7 @@ React create-react-app, scss mobile responsive design, mobile first tervezés. F
   - create-react-app
   - useState
   - useEffect
+  - useContext
   - react hook
   - components
   - React Select
