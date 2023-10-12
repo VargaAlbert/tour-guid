@@ -22,7 +22,7 @@ export default function StartQuery() {
           <h3>
             Bérelj idegenvezetőt és fedezd fel úti célod látványosságait.
             <span className="text-free"> Ingyenes </span>
-            lelkendezésünkkel
+            lekérdezéssünkel
             <span className="text-free"> 50db idegenvezető </span> közül
             választhatsz, <span className="text-prem"> prémium </span>{" "}
             változatban
