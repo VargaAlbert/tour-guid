@@ -19,7 +19,7 @@ export const StartQueryProvider = ({ children }) => {
     { value: "DK", label: "Denmark" },
     { value: "ES", label: "Spain" },
     { value: "FI", label: "Finland" },
-    { value: "FR", label: "France" },
+    { value: "FR", label: "France" },git 
     { value: "GB", label: "United Kingdom" },
     { value: "IE", label: "Ireland" }, */
   ];
