@@ -7,8 +7,8 @@ import { AiFillStar } from "react-icons/ai";
 export default function Guid({
   premium,
   picture,
-  name,
   nationality,
+  name,
   city,
   star,
   money,

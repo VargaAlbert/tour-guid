@@ -15,13 +15,13 @@ export const StartQueryProvider = ({ children }) => {
     { value: "BR", label: "Brazil" },
     { value: "CA", label: "Canada" },
     { value: "CH", label: "Svájc" },
-    { value: "DE", label: "Germany" },
+    /*     { value: "DE", label: "Germany" },
     { value: "DK", label: "Denmark" },
     { value: "ES", label: "Spain" },
     { value: "FI", label: "Finland" },
-    { value: "FR", label: "France" },
+    { value: "FR", label: "France" },git 
     { value: "GB", label: "United Kingdom" },
-    { value: "IE", label: "Ireland" },
+    { value: "IE", label: "Ireland" }, */
   ];
 
   const clickCounter = () => {
